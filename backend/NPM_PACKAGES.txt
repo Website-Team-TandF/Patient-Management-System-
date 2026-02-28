@@ -1,0 +1,93 @@
+=============================================
+NPM PACKAGES INSTALLATION COMMANDS
+===========================================
+
+PRODUCTION DEPENDENCIES:
+------------------------
+
+1. Express - Web framework for Node.js
+   npm install express
+
+2. Mongoose - MongoDB object modeling tool
+   npm install mongoose
+
+3. bcryptjs - Password hashing library
+   npm install bcryptjs
+
+4. jsonwebtoken - JWT token generation and verification
+   npm install jsonwebtoken
+
+5. nanoid - Unique ID generator
+   npm install nanoid
+
+6. dotenv - Environment variable loader
+   npm install dotenv
+
+7. cookie-parser - Parse Cookie header and populate req.cookies
+   npm install cookie-parser
+
+
+DEVELOPMENT DEPENDENCIES:
+-------------------------
+
+8. nodemon - Auto-restart server during development
+   npm install --save-dev nodemon
+
+9. TypeScript - TypeScript compiler
+   npm install --save-dev typescript
+
+10. ts-node - TypeScript execution for Node.js
+    npm install --save-dev ts-node
+
+11. @types/express - TypeScript definitions for Express
+    npm install --save-dev @types/express
+
+12. @types/node - TypeScript definitions for Node.js
+    npm install --save-dev @types/node
+
+13. @types/bcryptjs - TypeScript definitions for bcryptjs
+    npm install --save-dev @types/bcryptjs
+
+14. @types/jsonwebtoken - TypeScript definitions for jsonwebtoken
+    npm install --save-dev @types/jsonwebtoken
+
+15. @types/cookie-parser - TypeScript definitions for cookie-parser
+    npm install --save-dev @types/cookie-parser
+
+
+===========================================
+INSTALL ALL AT ONCE:
+===========================================
+
+PRODUCTION DEPENDENCIES:
+npm install express mongoose bcryptjs jsonwebtoken nanoid dotenv cookie-parser
+
+DEVELOPMENT DEPENDENCIES:
+npm install --save-dev nodemon typescript ts-node @types/express @types/node @types/bcryptjs @types/jsonwebtoken @types/cookie-parser
+
+
+===========================================
+INSTALL EVERYTHING (PRODUCTION + DEV):
+===========================================
+
+npm install express mongoose bcryptjs jsonwebtoken nanoid dotenv cookie-parser
+npm install --save-dev nodemon typescript ts-node @types/express @types/node @types/bcryptjs @types/jsonwebtoken @types/cookie-parser
+
+
+===========================================
+PACKAGE DESCRIPTIONS:
+===========================================
+
+express - Fast, unopinionated, minimalist web framework for Node.js
+mongoose - Elegant MongoDB object modeling for Node.js
+bcryptjs - Optimized bcrypt library for Node.js (pure JavaScript)
+jsonwebtoken - JSON Web Token implementation for Node.js
+nanoid - A tiny, secure, URL-friendly unique string ID generator
+dotenv - Loads environment variables from .env file
+cookie-parser - Parse Cookie header and populate req.cookies
+nodemon - Monitor for any changes and automatically restart the server
+typescript - TypeScript compiler and language services
+ts-node - TypeScript execution environment for Node.js
+@types/* - TypeScript type definitions for JavaScript libraries
+
+

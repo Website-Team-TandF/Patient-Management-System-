@@ -1,0 +1,2904 @@
+[
+  {
+    "_id": {
+      "$oid": "b5cb444218e5bdbe41981e5b"
+    },
+    "visitToken": 36,
+    "patientId": {
+      "$oid": "94206d6051d1c11400339322"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000002"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Diabetes",
+      "Asthma"
+    ],
+    "diseaseDuration": "10 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2",
+      "Symptom 3"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Triphala Churna"
+    ],
+    "vitals": {
+      "pulse": 80,
+      "bp": "134/79",
+      "temperature": 98.2
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": true,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2026-01-06",
+    "createdAt": {
+      "$date": "2025-12-22T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-22T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "ecf527bff350f75011edf33f"
+    },
+    "visitToken": 14,
+    "patientId": {
+      "$oid": "203428a90c65b830234126dd"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000002"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Arthritis"
+    ],
+    "diseaseDuration": "6 months",
+    "presentSymptoms": [
+      "Symptom 1"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Brahmi Vati"
+    ],
+    "vitals": {
+      "pulse": 73,
+      "bp": "129/75",
+      "temperature": 98.2
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-12-11",
+    "createdAt": {
+      "$date": "2025-11-26T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-26T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "45723314f606c4adf4091a6a"
+    },
+    "visitToken": 9,
+    "patientId": {
+      "$oid": "48074c1f7aab9bb74b6b99ad"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000001"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Hypertension"
+    ],
+    "diseaseDuration": "8 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2",
+      "Symptom 3"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Shirodhara",
+      "Nadi Pariksha"
+    ],
+    "vitals": {
+      "pulse": 82,
+      "bp": "126/73",
+      "temperature": 98.1
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": false,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": true,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-12-22",
+    "createdAt": {
+      "$date": "2025-12-07T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-07T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "c03afa39e7a100c1243670bc"
+    },
+    "visitToken": 16,
+    "patientId": {
+      "$oid": "fba95bd741aa4d575749dd98"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000002"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Thyroid"
+    ],
+    "diseaseDuration": "6 months",
+    "presentSymptoms": [
+      "Symptom 1"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Abhyanga"
+    ],
+    "vitals": {
+      "pulse": 81,
+      "bp": "134/74",
+      "temperature": 98.0
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2",
+      "Med 3"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-08-09",
+    "createdAt": {
+      "$date": "2025-07-25T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-07-25T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "f996b4032eea454ccbd8fda3"
+    },
+    "visitToken": 36,
+    "patientId": {
+      "$oid": "203428a90c65b830234126dd"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000002"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Gastritis"
+    ],
+    "diseaseDuration": "7 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Panchakarma"
+    ],
+    "vitals": {
+      "pulse": 89,
+      "bp": "123/86",
+      "temperature": 97.2
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": false,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2",
+      "Med 3"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-11-17",
+    "createdAt": {
+      "$date": "2025-11-02T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-02T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "e0ce0a61f7f46accc4162fd0"
+    },
+    "visitToken": 35,
+    "patientId": {
+      "$oid": "fa46f82ef527fc3140a1b92f"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000003"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Hypertension",
+      "Gastritis"
+    ],
+    "diseaseDuration": "2 months",
+    "presentSymptoms": [
+      "Symptom 1"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Triphala Churna"
+    ],
+    "vitals": {
+      "pulse": 71,
+      "bp": "114/89",
+      "temperature": 98.7
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": true,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2",
+      "Med 3"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-08-27",
+    "createdAt": {
+      "$date": "2025-08-12T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-08-12T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "117ca8e8b391b04aae2e9177"
+    },
+    "visitToken": 48,
+    "patientId": {
+      "$oid": "a3f7bfe64157cb561c2b9290"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000001"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Thyroid",
+      "Skin Allergy"
+    ],
+    "diseaseDuration": "8 months",
+    "presentSymptoms": [
+      "Symptom 1"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Nadi Pariksha"
+    ],
+    "vitals": {
+      "pulse": 82,
+      "bp": "123/74",
+      "temperature": 97.0
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-12-21",
+    "createdAt": {
+      "$date": "2025-12-06T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-06T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "2d58178c19606874b8cbf555"
+    },
+    "visitToken": 32,
+    "patientId": {
+      "$oid": "009934d59b548e3cfe65c88a"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000003"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Thyroid",
+      "Hypertension"
+    ],
+    "diseaseDuration": "5 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2",
+      "Symptom 3"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Brahmi Vati"
+    ],
+    "vitals": {
+      "pulse": 72,
+      "bp": "134/75",
+      "temperature": 97.3
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": true,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2",
+      "Med 3"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-09-26",
+    "createdAt": {
+      "$date": "2025-09-11T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-09-11T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "113f7d9460e486880c6d5930"
+    },
+    "visitToken": 31,
+    "patientId": {
+      "$oid": "c2dff18c839679ceed114056"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000002"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Arthritis"
+    ],
+    "diseaseDuration": "2 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2",
+      "Symptom 3"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Nadi Pariksha",
+      "Shirodhara"
+    ],
+    "vitals": {
+      "pulse": 90,
+      "bp": "119/90",
+      "temperature": 98.3
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": false,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2",
+      "Med 3"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-11-22",
+    "createdAt": {
+      "$date": "2025-11-07T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-07T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "37384ef323ce665c80694aa5"
+    },
+    "visitToken": 13,
+    "patientId": {
+      "$oid": "d50e64ab8f9bfa32867ce448"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000002"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Thyroid",
+      "Gastritis"
+    ],
+    "diseaseDuration": "2 months",
+    "presentSymptoms": [
+      "Symptom 1"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Nasya"
+    ],
+    "vitals": {
+      "pulse": 88,
+      "bp": "135/89",
+      "temperature": 97.0
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2",
+      "Med 3"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-12-06",
+    "createdAt": {
+      "$date": "2025-11-21T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-21T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "96d03aa201db47635b29d288"
+    },
+    "visitToken": 25,
+    "patientId": {
+      "$oid": "3cae7eeddf6dcc1904133216"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000002"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Thyroid"
+    ],
+    "diseaseDuration": "3 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2",
+      "Symptom 3"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Virechana"
+    ],
+    "vitals": {
+      "pulse": 74,
+      "bp": "122/86",
+      "temperature": 97.2
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-06-28",
+    "createdAt": {
+      "$date": "2025-06-13T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-06-13T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "f06275e3b5afee55d876b46f"
+    },
+    "visitToken": 45,
+    "patientId": {
+      "$oid": "01f444bc5307246d77b4daad"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000001"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Hypertension",
+      "PCOS"
+    ],
+    "diseaseDuration": "3 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Triphala Churna"
+    ],
+    "vitals": {
+      "pulse": 89,
+      "bp": "133/87",
+      "temperature": 98.3
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": false,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": true,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2",
+      "Med 3"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-08-31",
+    "createdAt": {
+      "$date": "2025-08-16T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-08-16T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "b4f699acf9639502be490325"
+    },
+    "visitToken": 17,
+    "patientId": {
+      "$oid": "d50e64ab8f9bfa32867ce448"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000002"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Migraine",
+      "Gastritis"
+    ],
+    "diseaseDuration": "8 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2",
+      "Symptom 3"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Panchakarma"
+    ],
+    "vitals": {
+      "pulse": 85,
+      "bp": "118/74",
+      "temperature": 98.7
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-12-23",
+    "createdAt": {
+      "$date": "2025-12-08T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-08T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "4e9f88ae61dc1ceee8ca713f"
+    },
+    "visitToken": 30,
+    "patientId": {
+      "$oid": "94206d6051d1c11400339322"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000001"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Skin Allergy"
+    ],
+    "diseaseDuration": "2 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Shirodhara"
+    ],
+    "vitals": {
+      "pulse": 77,
+      "bp": "131/89",
+      "temperature": 98.2
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": false,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2",
+      "Med 3"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2026-01-24",
+    "createdAt": {
+      "$date": "2026-01-09T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-09T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "1724dcd0f0faee55d6a32dca"
+    },
+    "visitToken": 32,
+    "patientId": {
+      "$oid": "db8f173229dfb74fc10c0c33"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000002"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Skin Allergy",
+      "Diabetes"
+    ],
+    "diseaseDuration": "9 months",
+    "presentSymptoms": [
+      "Symptom 1"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Triphala Churna"
+    ],
+    "vitals": {
+      "pulse": 82,
+      "bp": "118/85",
+      "temperature": 98.8
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": true,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2",
+      "Med 3"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2026-01-20",
+    "createdAt": {
+      "$date": "2026-01-05T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "f3a88cb64fda0a2ac4877453"
+    },
+    "visitToken": 27,
+    "patientId": {
+      "$oid": "dda08ad088903baee9abb718"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000003"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Hypertension",
+      "Gastritis"
+    ],
+    "diseaseDuration": "12 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2",
+      "Symptom 3"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Shirodhara",
+      "Triphala Churna"
+    ],
+    "vitals": {
+      "pulse": 81,
+      "bp": "129/90",
+      "temperature": 98.4
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": false,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": true,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-11-25",
+    "createdAt": {
+      "$date": "2025-11-10T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-10T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "c5523218f89060f0e0dc0e25"
+    },
+    "visitToken": 15,
+    "patientId": {
+      "$oid": "a3f7bfe64157cb561c2b9290"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000002"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Diabetes",
+      "Hypertension"
+    ],
+    "diseaseDuration": "5 months",
+    "presentSymptoms": [
+      "Symptom 1"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Triphala Churna",
+      "Nasya"
+    ],
+    "vitals": {
+      "pulse": 89,
+      "bp": "119/79",
+      "temperature": 97.0
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": true,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": true,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-12-07",
+    "createdAt": {
+      "$date": "2025-11-22T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-22T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6df0801388d783b0a0704bc1"
+    },
+    "visitToken": 50,
+    "patientId": {
+      "$oid": "95e849e631d6511999bdde09"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000001"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Migraine"
+    ],
+    "diseaseDuration": "6 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Virechana"
+    ],
+    "vitals": {
+      "pulse": 77,
+      "bp": "115/89",
+      "temperature": 98.9
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": false,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-12-14",
+    "createdAt": {
+      "$date": "2025-11-29T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-29T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "ed7148d83b2878e0223e82ee"
+    },
+    "visitToken": 3,
+    "patientId": {
+      "$oid": "009934d59b548e3cfe65c88a"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000002"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Skin Allergy"
+    ],
+    "diseaseDuration": "3 months",
+    "presentSymptoms": [
+      "Symptom 1"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Shirodhara"
+    ],
+    "vitals": {
+      "pulse": 74,
+      "bp": "127/89",
+      "temperature": 98.6
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-10-08",
+    "createdAt": {
+      "$date": "2025-09-23T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-09-23T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "7159a483673496aac65c085e"
+    },
+    "visitToken": 50,
+    "patientId": {
+      "$oid": "db8f173229dfb74fc10c0c33"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000003"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Migraine"
+    ],
+    "diseaseDuration": "5 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Nadi Pariksha"
+    ],
+    "vitals": {
+      "pulse": 76,
+      "bp": "139/88",
+      "temperature": 97.1
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2026-01-14",
+    "createdAt": {
+      "$date": "2025-12-30T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-30T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "e857d1f1646f1ac53493da9d"
+    },
+    "visitToken": 19,
+    "patientId": {
+      "$oid": "dda08ad088903baee9abb718"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000001"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Migraine",
+      "Hypertension"
+    ],
+    "diseaseDuration": "1 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Shirodhara"
+    ],
+    "vitals": {
+      "pulse": 73,
+      "bp": "129/84",
+      "temperature": 97.3
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": true,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-10-14",
+    "createdAt": {
+      "$date": "2025-09-29T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-09-29T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "3242449332c49a24262dc1b1"
+    },
+    "visitToken": 27,
+    "patientId": {
+      "$oid": "01f444bc5307246d77b4daad"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000003"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Thyroid"
+    ],
+    "diseaseDuration": "5 months",
+    "presentSymptoms": [
+      "Symptom 1"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Shirodhara",
+      "Triphala Churna"
+    ],
+    "vitals": {
+      "pulse": 84,
+      "bp": "116/76",
+      "temperature": 97.7
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2",
+      "Med 3"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-06-25",
+    "createdAt": {
+      "$date": "2025-06-10T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-06-10T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "3182c994d868f1f68284ae81"
+    },
+    "visitToken": 31,
+    "patientId": {
+      "$oid": "dda08ad088903baee9abb718"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000002"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Arthritis",
+      "Thyroid"
+    ],
+    "diseaseDuration": "4 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Nasya"
+    ],
+    "vitals": {
+      "pulse": 88,
+      "bp": "138/77",
+      "temperature": 97.6
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-12-09",
+    "createdAt": {
+      "$date": "2025-11-24T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-24T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "82226463df1167c9cfa69a1b"
+    },
+    "visitToken": 26,
+    "patientId": {
+      "$oid": "94206d6051d1c11400339322"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000003"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Gastritis",
+      "Migraine"
+    ],
+    "diseaseDuration": "7 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Triphala Churna"
+    ],
+    "vitals": {
+      "pulse": 85,
+      "bp": "126/76",
+      "temperature": 97.6
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-12-01",
+    "createdAt": {
+      "$date": "2025-11-16T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-16T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "f63f8c0aedc16c2370229635"
+    },
+    "visitToken": 46,
+    "patientId": {
+      "$oid": "ddb1717dbab1a48447595629"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000001"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "PCOS",
+      "Gastritis"
+    ],
+    "diseaseDuration": "4 months",
+    "presentSymptoms": [
+      "Symptom 1"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Nasya",
+      "Abhyanga"
+    ],
+    "vitals": {
+      "pulse": 90,
+      "bp": "123/72",
+      "temperature": 97.4
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": false,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-12-06",
+    "createdAt": {
+      "$date": "2025-11-21T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-21T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "d00a93491297519d2f5ff8cc"
+    },
+    "visitToken": 13,
+    "patientId": {
+      "$oid": "ddb1717dbab1a48447595629"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000001"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Thyroid",
+      "Diabetes"
+    ],
+    "diseaseDuration": "7 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2",
+      "Symptom 3"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Abhyanga",
+      "Shirodhara"
+    ],
+    "vitals": {
+      "pulse": 87,
+      "bp": "139/85",
+      "temperature": 98.8
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": true,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-07-05",
+    "createdAt": {
+      "$date": "2025-06-20T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-06-20T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "bd8bf77732401b5a8d93a03e"
+    },
+    "visitToken": 7,
+    "patientId": {
+      "$oid": "a3f7bfe64157cb561c2b9290"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000001"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Joint Pain",
+      "Gastritis"
+    ],
+    "diseaseDuration": "10 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Nadi Pariksha"
+    ],
+    "vitals": {
+      "pulse": 87,
+      "bp": "128/79",
+      "temperature": 97.1
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2026-01-15",
+    "createdAt": {
+      "$date": "2025-12-31T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-31T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "48f3ec5cfb0145ed181e6752"
+    },
+    "visitToken": 24,
+    "patientId": {
+      "$oid": "58f68d5ee28bdc7ce4d5ad15"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000003"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Hypertension",
+      "Skin Allergy"
+    ],
+    "diseaseDuration": "3 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2",
+      "Symptom 3"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Brahmi Vati",
+      "Shirodhara"
+    ],
+    "vitals": {
+      "pulse": 86,
+      "bp": "134/89",
+      "temperature": 98.1
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": true,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-09-28",
+    "createdAt": {
+      "$date": "2025-09-13T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-09-13T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "f12f839ed1b945fb00ad936d"
+    },
+    "visitToken": 38,
+    "patientId": {
+      "$oid": "3cae7eeddf6dcc1904133216"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000002"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "PCOS",
+      "Diabetes"
+    ],
+    "diseaseDuration": "2 months",
+    "presentSymptoms": [
+      "Symptom 1"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Triphala Churna",
+      "Panchakarma"
+    ],
+    "vitals": {
+      "pulse": 89,
+      "bp": "126/71",
+      "temperature": 98.1
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": true,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2",
+      "Med 3"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-05-16",
+    "createdAt": {
+      "$date": "2025-05-01T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-05-01T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "ff9029f88175a0dede2b86e4"
+    },
+    "visitToken": 16,
+    "patientId": {
+      "$oid": "860fa959d00731778dcc8bc4"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000001"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "PCOS"
+    ],
+    "diseaseDuration": "3 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Abhyanga",
+      "Triphala Churna"
+    ],
+    "vitals": {
+      "pulse": 73,
+      "bp": "139/70",
+      "temperature": 97.8
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-12-31",
+    "createdAt": {
+      "$date": "2025-12-16T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-16T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6a31d866b508cf52e35272f2"
+    },
+    "visitToken": 38,
+    "patientId": {
+      "$oid": "dda08ad088903baee9abb718"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000001"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Migraine",
+      "Joint Pain"
+    ],
+    "diseaseDuration": "6 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Abhyanga"
+    ],
+    "vitals": {
+      "pulse": 79,
+      "bp": "130/82",
+      "temperature": 98.3
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": false,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-11-13",
+    "createdAt": {
+      "$date": "2025-10-29T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-10-29T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "fc87a75e7c46772104d4d1ca"
+    },
+    "visitToken": 46,
+    "patientId": {
+      "$oid": "ddb1717dbab1a48447595629"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000001"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Asthma"
+    ],
+    "diseaseDuration": "6 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Panchakarma",
+      "Triphala Churna"
+    ],
+    "vitals": {
+      "pulse": 72,
+      "bp": "122/79",
+      "temperature": 97.5
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": false,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-04-29",
+    "createdAt": {
+      "$date": "2025-04-14T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-04-14T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "4e24db2091da9e5f6d7395e1"
+    },
+    "visitToken": 12,
+    "patientId": {
+      "$oid": "48074c1f7aab9bb74b6b99ad"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000003"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Thyroid"
+    ],
+    "diseaseDuration": "9 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2",
+      "Symptom 3"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Nadi Pariksha",
+      "Brahmi Vati"
+    ],
+    "vitals": {
+      "pulse": 85,
+      "bp": "122/71",
+      "temperature": 97.7
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-10-07",
+    "createdAt": {
+      "$date": "2025-09-22T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-09-22T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "26c6a23d3d54832a8158c325"
+    },
+    "visitToken": 44,
+    "patientId": {
+      "$oid": "c2dff18c839679ceed114056"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000002"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Hypertension",
+      "Thyroid"
+    ],
+    "diseaseDuration": "5 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Nasya",
+      "Abhyanga"
+    ],
+    "vitals": {
+      "pulse": 80,
+      "bp": "133/81",
+      "temperature": 97.5
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": false,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": true,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2",
+      "Med 3"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-10-12",
+    "createdAt": {
+      "$date": "2025-09-27T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-09-27T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "09c1cd1a0008da50711a36fa"
+    },
+    "visitToken": 27,
+    "patientId": {
+      "$oid": "a3f7bfe64157cb561c2b9290"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000001"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Hypertension",
+      "Migraine"
+    ],
+    "diseaseDuration": "12 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Shirodhara"
+    ],
+    "vitals": {
+      "pulse": 84,
+      "bp": "124/77",
+      "temperature": 98.1
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": false,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": true,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2",
+      "Med 3"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2026-01-29",
+    "createdAt": {
+      "$date": "2026-01-14T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-14T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "60010b420cd44cc0a9cdc0de"
+    },
+    "visitToken": 9,
+    "patientId": {
+      "$oid": "dda08ad088903baee9abb718"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000001"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Diabetes",
+      "Joint Pain"
+    ],
+    "diseaseDuration": "2 months",
+    "presentSymptoms": [
+      "Symptom 1"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Nasya"
+    ],
+    "vitals": {
+      "pulse": 90,
+      "bp": "124/81",
+      "temperature": 97.2
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": true,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-10-25",
+    "createdAt": {
+      "$date": "2025-10-10T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-10-10T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "527237d99b39458b223f4962"
+    },
+    "visitToken": 22,
+    "patientId": {
+      "$oid": "fba95bd741aa4d575749dd98"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000001"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Diabetes",
+      "PCOS"
+    ],
+    "diseaseDuration": "12 months",
+    "presentSymptoms": [
+      "Symptom 1"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Triphala Churna",
+      "Nasya"
+    ],
+    "vitals": {
+      "pulse": 76,
+      "bp": "123/81",
+      "temperature": 97.6
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": true,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-10-18",
+    "createdAt": {
+      "$date": "2025-10-03T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-10-03T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "94384df559367635209afb1d"
+    },
+    "visitToken": 33,
+    "patientId": {
+      "$oid": "fba95bd741aa4d575749dd98"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000002"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Diabetes"
+    ],
+    "diseaseDuration": "3 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Abhyanga"
+    ],
+    "vitals": {
+      "pulse": 80,
+      "bp": "133/76",
+      "temperature": 97.8
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": true,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-05-18",
+    "createdAt": {
+      "$date": "2025-05-03T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-05-03T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "1a6ecdc8f151cd8ede51bc83"
+    },
+    "visitToken": 25,
+    "patientId": {
+      "$oid": "db8f173229dfb74fc10c0c33"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000003"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Skin Allergy"
+    ],
+    "diseaseDuration": "10 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2",
+      "Symptom 3"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Abhyanga",
+      "Nadi Pariksha"
+    ],
+    "vitals": {
+      "pulse": 88,
+      "bp": "128/90",
+      "temperature": 97.7
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": false,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2026-01-16",
+    "createdAt": {
+      "$date": "2026-01-01T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-01T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "d34d3f421a39b6a9b8184b4b"
+    },
+    "visitToken": 1,
+    "patientId": {
+      "$oid": "58f68d5ee28bdc7ce4d5ad15"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000001"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Joint Pain"
+    ],
+    "diseaseDuration": "9 months",
+    "presentSymptoms": [
+      "Symptom 1"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Brahmi Vati"
+    ],
+    "vitals": {
+      "pulse": 77,
+      "bp": "140/70",
+      "temperature": 98.9
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": false,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2",
+      "Med 3"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-06-12",
+    "createdAt": {
+      "$date": "2025-05-28T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-05-28T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "b7a9f2c150c09f0f8cf7dc3b"
+    },
+    "visitToken": 37,
+    "patientId": {
+      "$oid": "d50e64ab8f9bfa32867ce448"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000003"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Migraine",
+      "Arthritis"
+    ],
+    "diseaseDuration": "12 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2",
+      "Symptom 3"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Triphala Churna"
+    ],
+    "vitals": {
+      "pulse": 83,
+      "bp": "121/88",
+      "temperature": 97.6
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": false,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2026-01-22",
+    "createdAt": {
+      "$date": "2026-01-07T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-07T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "0fde90969075df62423928f8"
+    },
+    "visitToken": 2,
+    "patientId": {
+      "$oid": "02efe5e81b55c920b0f8e03e"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000003"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Arthritis",
+      "Gastritis"
+    ],
+    "diseaseDuration": "6 months",
+    "presentSymptoms": [
+      "Symptom 1"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Virechana",
+      "Abhyanga"
+    ],
+    "vitals": {
+      "pulse": 85,
+      "bp": "133/70",
+      "temperature": 98.2
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": false,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-10-05",
+    "createdAt": {
+      "$date": "2025-09-20T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-09-20T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6e75ff78ce522b9c9780557c"
+    },
+    "visitToken": 24,
+    "patientId": {
+      "$oid": "860fa959d00731778dcc8bc4"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000001"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Hypertension",
+      "Skin Allergy"
+    ],
+    "diseaseDuration": "2 months",
+    "presentSymptoms": [
+      "Symptom 1"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Abhyanga",
+      "Virechana"
+    ],
+    "vitals": {
+      "pulse": 75,
+      "bp": "127/77",
+      "temperature": 97.8
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": true,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2026-01-28",
+    "createdAt": {
+      "$date": "2026-01-13T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-13T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "9a83b0e25ab70b89960f5ccc"
+    },
+    "visitToken": 19,
+    "patientId": {
+      "$oid": "fba95bd741aa4d575749dd98"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000001"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Migraine"
+    ],
+    "diseaseDuration": "6 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2",
+      "Symptom 3"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Nasya"
+    ],
+    "vitals": {
+      "pulse": 71,
+      "bp": "113/78",
+      "temperature": 98.5
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-11-19",
+    "createdAt": {
+      "$date": "2025-11-04T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-04T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "ec2ec510813fcf97deb9515b"
+    },
+    "visitToken": 22,
+    "patientId": {
+      "$oid": "dda08ad088903baee9abb718"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000002"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Joint Pain",
+      "Diabetes"
+    ],
+    "diseaseDuration": "3 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2",
+      "Symptom 3"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Brahmi Vati",
+      "Shirodhara"
+    ],
+    "vitals": {
+      "pulse": 80,
+      "bp": "134/80",
+      "temperature": 98.8
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": true,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-12-30",
+    "createdAt": {
+      "$date": "2025-12-15T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-15T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "f8bc09160e4ac1ecaf733035"
+    },
+    "visitToken": 43,
+    "patientId": {
+      "$oid": "fba95bd741aa4d575749dd98"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000003"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Gastritis"
+    ],
+    "diseaseDuration": "8 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2",
+      "Symptom 3"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Virechana"
+    ],
+    "vitals": {
+      "pulse": 90,
+      "bp": "136/88",
+      "temperature": 98.4
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2",
+      "Med 3"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-05-01",
+    "createdAt": {
+      "$date": "2025-04-16T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-04-16T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "e175e55d6712929800b16c31"
+    },
+    "visitToken": 35,
+    "patientId": {
+      "$oid": "dda08ad088903baee9abb718"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000002"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Hypertension"
+    ],
+    "diseaseDuration": "7 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2",
+      "Symptom 3"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Virechana",
+      "Panchakarma"
+    ],
+    "vitals": {
+      "pulse": 86,
+      "bp": "131/89",
+      "temperature": 98.7
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": true,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2",
+      "Med 3"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-11-02",
+    "createdAt": {
+      "$date": "2025-10-18T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-10-18T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "d9fb9af4e2198694ff27c00c"
+    },
+    "visitToken": 15,
+    "patientId": {
+      "$oid": "a3f7bfe64157cb561c2b9290"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000001"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000001"
+    },
+    "status": "done",
+    "disease": [
+      "Diabetes"
+    ],
+    "diseaseDuration": "11 months",
+    "presentSymptoms": [
+      "Symptom 1"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Nadi Pariksha"
+    ],
+    "vitals": {
+      "pulse": 71,
+      "bp": "131/76",
+      "temperature": 98.0
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": true,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-12-23",
+    "createdAt": {
+      "$date": "2025-12-08T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-08T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "9d4940209dac54df0989d8ba"
+    },
+    "visitToken": 17,
+    "patientId": {
+      "$oid": "009934d59b548e3cfe65c88a"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000003"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Migraine",
+      "Skin Allergy"
+    ],
+    "diseaseDuration": "8 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2",
+      "Symptom 3"
+    ],
+    "previousTreatment": [
+      "Allopathy"
+    ],
+    "treatmentGiven": [
+      "Nadi Pariksha"
+    ],
+    "vitals": {
+      "pulse": 84,
+      "bp": "127/83",
+      "temperature": 97.8
+    },
+    "otherProblems": {
+      "acidity": true,
+      "diabetes": false,
+      "constipation": false,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2",
+      "Med 3"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2026-01-02",
+    "createdAt": {
+      "$date": "2025-12-18T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-18T22:28:36.860380Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "cbb4ef63c37f79d50f9a37b6"
+    },
+    "visitToken": 44,
+    "patientId": {
+      "$oid": "c2dff18c839679ceed114056"
+    },
+    "hospitalId": {
+      "$oid": "65a000000000000000000002"
+    },
+    "doctorId": {
+      "$oid": "65b000000000000000000002"
+    },
+    "status": "done",
+    "disease": [
+      "Joint Pain"
+    ],
+    "diseaseDuration": "4 months",
+    "presentSymptoms": [
+      "Symptom 1",
+      "Symptom 2",
+      "Symptom 3"
+    ],
+    "previousTreatment": [
+      "Homeopathy"
+    ],
+    "treatmentGiven": [
+      "Nadi Pariksha"
+    ],
+    "vitals": {
+      "pulse": 76,
+      "bp": "128/86",
+      "temperature": 98.3
+    },
+    "otherProblems": {
+      "acidity": false,
+      "diabetes": false,
+      "constipation": true,
+      "amebiasis": false,
+      "bp": false,
+      "heartProblems": false,
+      "other": ""
+    },
+    "medicinesGiven": [
+      "Med 1",
+      "Med 2",
+      "Med 3"
+    ],
+    "advice": "Drink warm water, Avoid spicy food",
+    "followUpDate": "2025-12-19",
+    "createdAt": {
+      "$date": "2025-12-04T22:28:36.860380Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-04T22:28:36.860380Z"
+    },
+    "__v": 0
+  }
+]

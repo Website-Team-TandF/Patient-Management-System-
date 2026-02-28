@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Ayurvedic Palette */
+  --booking-primary: #1b4332;       /* Deep Forest Green */
+  --booking-primary-dark: #081c15;  /* Darker Green */
+  --booking-secondary: #52b788;     /* Healing Sage */
+  --booking-accent: #d4a373;        /* Warm Earth Gold */
+  --booking-bg: #fdfcf4;            /* Natural Cream/Paper */
+  --booking-card-bg: rgba(255, 255, 255, 0.95);
+  --booking-text: #2d3748;          /* Soft Charcoal */
+  --booking-text-light: #718096;
+  --booking-border: #e2e8f0;
+  
+  /* Gradients */
+  --gradient-ayurveda: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
+}
+
+.booking-app-wrapper {
+  min-height: 100vh;
+  background: var(--booking-bg);
+  /* Subtle leaf-like pattern overlay could go here */
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(82, 183, 136, 0.05) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(212, 163, 115, 0.05) 0%, transparent 20%);
+  font-family: 'Outfit', sans-serif; /* Consider switching to a serif for headers if available */
+  color: var(--booking-text);
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.booking-container {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.booking-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.booking-logo {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--booking-primary);
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  /* Remove gradient text for a more solid, premium look */
+  background: none;
+  -webkit-text-fill-color: initial;
+}
+
+.booking-card-main {
+  background: var(--booking-card-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--booking-border);
+  border-radius: 32px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-progress-bar {
+  height: 6px;
+  background: #f1f5f9;
+  width: 100%;
+  position: relative;
+}
+
+.booking-progress-fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--booking-primary), var(--booking-secondary));
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.booking-step-content {
+  padding: 3rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Consultation Type Step */
+.type-selection-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.type-card {
+  position: relative;
+  padding: 2.5rem;
+  background: white;
+  border: 1px solid var(--booking-border); /* Thinner border */
+  border-radius: 24px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.type-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--booking-secondary);
+  box-shadow: 0 15px 30px -5px rgba(27, 67, 50, 0.08); /* Green shadow */
+}
+
+.type-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  background: rgba(99, 102, 241, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--booking-primary);
+  transition: all 0.3s ease;
+}
+
+.type-card:hover .type-icon-wrapper {
+  background: var(--booking-primary);
+  color: white;
+  transform: scale(1.1);
+}
+
+.type-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.type-card p {
+  color: var(--booking-text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.type-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.25rem 0.75rem;
+  background: #fef2f2;
+  color: #ef4444;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 99px;
+  text-transform: uppercase;
+}
+
+/* Hospital Selection */
+.hospital-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hospital-item-card {
+  padding: 1.5rem;
+  background: white;
+  border-radius: 20px;
+  border: 1px solid var(--booking-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hospital-item-card:hover {
+  border-color: var(--booking-primary);
+  background: rgba(99, 102, 241, 0.02);
+}
+
+/* Slot Selection */
+.date-strip {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+  scrollbar-width: none;
+}
+
+.date-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.date-card {
+  min-width: 80px;
+  padding: 1rem;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid var(--booking-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.date-card.active {
+  background: var(--booking-primary);
+  border-color: var(--booking-primary);
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+}
+
+.slot-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.slot-box {
+  padding: 1rem 0.5rem;
+  background: white;
+  border-radius: 14px;
+  border: 1px solid var(--booking-border);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 72px;
+}
+
+.slot-box:hover:not(.disabled) {
+  border-color: var(--booking-primary);
+  transform: scale(1.02);
+}
+
+.slot-box.active {
+  border-color: var(--booking-primary);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.slot-box.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #f1f5f9;
+}
+
+.capacity-indicator {
+  font-size: 0.65rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+/* Doctor Cards */
+.doctor-ad-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.doctor-ad-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--booking-border);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.doctor-ad-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-image-container {
+  height: 200px;
+  position: relative;
+}
+
+.doctor-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.doctor-pricing-tag {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-weight: 800;
+  color: var(--booking-primary);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-info-content {
+  padding: 1.5rem;
+}
+
+/* Animations */
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .type-selection-grid {
+    grid-template-columns: 1fr;
+  }
+  .booking-step-content {
+    padding: 1.5rem;
+  }
+}
