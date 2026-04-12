@@ -1,4 +1,5 @@
-# React + TypeScript + Vite
+﻿# React + TypeScript + Vite
+<!-- start from here -->
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -120,4 +121,6 @@ Use this endpoint to submit a new lead from an external form.
 > [!IMPORTANT]
 > The returned `_id` should be used to generate the personalized booking link for the lead:
 > `https://<booking-app-url>/?leadId=64f1a2b3c4d5e6f7a8b9c0d1`
+
+
 
