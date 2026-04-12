@@ -63,12 +63,12 @@ const HospitalList: React.FC = () => {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="text-2xl font-bold tracking-tight">Hospitals</h2>
-          <p className="text-muted-foreground">Manage your hospital network and appointments.</p>
+          <h2 className="text-2xl font-bold tracking-tight">Clinics</h2>
+          <p className="text-muted-foreground">Manage your clinics network and appointments.</p>
         </div>
         <Button onClick={handleAddNew} className="gap-2">
           <Plus size={16} />
-          Add Hospital
+          Add Clinic
         </Button>
       </div>
 
