@@ -10,7 +10,7 @@ import LeadsTab from './components/LeadsTab';
 import AdminAppointmentsTab from './components/AdminAppointmentsTab';
 
 const adminMenuItems: SidebarItem[] = [
-  { id: 'hospitals', label: 'Hospitals', icon: Building2 },
+  { id: 'hospitals', label: 'Clinics', icon: Building2 },
   { id: 'appointments', label: 'Appointments', icon: Calendar },
   { id: 'users', label: 'Users', icon: Users },
   { id: 'leads', label: 'Missed Leads', icon: Users },
