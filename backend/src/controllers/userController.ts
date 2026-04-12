@@ -43,12 +43,13 @@ export const login = async (req: Request, res: Response): Promise<void> => {
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
     });
 
-    // Return only user object with name and email (no token in response)
+    // Return user object and token so frontend can persist auth across refresh
     res.status(200).json({
       success: true,
       message: "Login successful",
       data: {
         user: result.user,
+        token: result.token,
       },
     });
   } catch (error: any) {

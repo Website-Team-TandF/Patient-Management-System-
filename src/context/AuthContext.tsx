@@ -72,6 +72,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const login = async (email: string, password: string) => {
     const response = await api.login(email, password);
     const userData = response.user;
+    const authToken = response.token;
+
+    if (authToken) {
+      localStorage.setItem('authToken', authToken);
+    }
+
     setUser(userData);
     
     if (userData.roles.length > 0) {
@@ -89,6 +95,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setUser(null);
     setActiveRole(null);
     localStorage.removeItem('activeRole');
+    localStorage.removeItem('authToken');
     navigate('/login');
   };
 
