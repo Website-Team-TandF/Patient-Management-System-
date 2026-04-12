@@ -34,7 +34,7 @@ const AdminDashboard: React.FC = () => {
 
   const getPageTitle = () => {
     switch (activeTab) {
-      case 'hospitals': return 'Hospital Management';
+      case 'hospitals': return 'Clinic Management';
       case 'appointments': return 'Appointment Management';
       case 'users': return 'User Management';
       case 'leads': return 'Lead Analysis';
