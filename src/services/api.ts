@@ -7,8 +7,8 @@ import { v4 as uuidv4 } from "uuid";
 // Check if API URL is defined
 const API_URL =
   import.meta.env.VITE_API_URL ||
-  "http://localhost:3000/api" ||
-  "https://patient-management-system-h5s9.onrender.com/api";
+  "https://patient-management-system-h5s9.onrender.com/api" ||
+  "http://localhost:3000/api";
 const USE_MOCK = !API_URL;
 
 const api = axios.create({
