@@ -15,7 +15,7 @@ export function Sidebar({ className, activeTab, setActiveTab }: SidebarProps) {
         <div className="px-3 py-2">
           <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight text-primary flex items-center gap-2">
             <LayoutDashboard className="h-5 w-5" />
-            Sagar Health
+            Ayurwishwa healthcare
           </h2>
           <div className="space-y-1">
             <Button
