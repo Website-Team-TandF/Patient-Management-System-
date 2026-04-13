@@ -5,10 +5,12 @@ import { mockMedicines } from "./mocks/medicineData";
 import { v4 as uuidv4 } from "uuid";
 
 // Check if API URL is defined
-const API_URL =
-  import.meta.env.VITE_API_URL ||
-  "https://patient-management-system-h5s9.onrender.com/api" ||
-  "http://localhost:3000/api";
+const definedApiUrl = import.meta.env.VITE_API_URL?.trim();
+const API_URL = definedApiUrl
+  ? definedApiUrl
+  : import.meta.env.MODE === "production"
+    ? "https://patient-management-system-h5s9.onrender.com/api"
+    : "http://localhost:3000/api";
 const USE_MOCK = !API_URL;
 
 const api = axios.create({
