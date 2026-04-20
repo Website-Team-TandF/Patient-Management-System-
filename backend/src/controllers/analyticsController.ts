@@ -1,15 +1,24 @@
-import { Request, Response } from 'express';
-import { Visit } from '../models/Visit';
+import { Request, Response } from "express";
+import { Visit } from "../models/Visit";
+import { parseLocalDateString } from "../utils/timeUtils";
 
-export const getHospitalVisitsAnalytics = async (req: Request, res: Response) => {
+export const getHospitalVisitsAnalytics = async (
+  req: Request,
+  res: Response,
+) => {
   try {
     const { startDate, endDate } = req.query;
     const query: any = {};
 
     if (startDate && endDate) {
+      const start = parseLocalDateString(startDate as string);
+      const end = parseLocalDateString(endDate as string);
+      // Set end date to end of day
+      end.setHours(23, 59, 59, 999);
+
       query.createdAt = {
-        $gte: new Date(startDate as string),
-        $lte: new Date(endDate as string)
+        $gte: start,
+        $lte: end,
       };
     }
 
@@ -17,29 +26,29 @@ export const getHospitalVisitsAnalytics = async (req: Request, res: Response) =>
       { $match: query },
       {
         $group: {
-          _id: '$hospitalId',
-          visitCount: { $sum: 1 }
-        }
+          _id: "$hospitalId",
+          visitCount: { $sum: 1 },
+        },
       },
       {
         $lookup: {
-          from: 'hospitals',
-          localField: '_id',
-          foreignField: '_id',
-          as: 'hospitalInfo'
-        }
+          from: "hospitals",
+          localField: "_id",
+          foreignField: "_id",
+          as: "hospitalInfo",
+        },
       },
-      { $unwind: '$hospitalInfo' },
+      { $unwind: "$hospitalInfo" },
       {
         $project: {
           _id: 0,
-          hospitalId: '$_id',
-          name: '$hospitalInfo.name',
-          city: '$hospitalInfo.city',
-          visitCount: 1
-        }
+          hospitalId: "$_id",
+          name: "$hospitalInfo.name",
+          city: "$hospitalInfo.city",
+          visitCount: 1,
+        },
       },
-      { $sort: { visitCount: -1 } }
+      { $sort: { visitCount: -1 } },
     ]);
 
     res.status(200).json({ success: true, data: analytics });
@@ -54,29 +63,34 @@ export const getDiseaseAnalytics = async (req: Request, res: Response) => {
     const query: any = {};
 
     if (startDate && endDate) {
+      const start = parseLocalDateString(startDate as string);
+      const end = parseLocalDateString(endDate as string);
+      // Set end date to end of day
+      end.setHours(23, 59, 59, 999);
+
       query.createdAt = {
-        $gte: new Date(startDate as string),
-        $lte: new Date(endDate as string)
+        $gte: start,
+        $lte: end,
       };
     }
 
     const analytics = await Visit.aggregate([
       { $match: query },
-      { $unwind: '$disease' },
+      { $unwind: "$disease" },
       {
         $group: {
-          _id: '$disease',
-          count: { $sum: 1 }
-        }
+          _id: "$disease",
+          count: { $sum: 1 },
+        },
       },
       { $sort: { count: -1 } },
       {
         $project: {
           _id: 0,
-          disease: '$_id',
-          count: 1
-        }
-      }
+          disease: "$_id",
+          count: 1,
+        },
+      },
     ]);
 
     res.status(200).json({ success: true, data: analytics });
@@ -91,29 +105,36 @@ export const getTreatmentAnalytics = async (req: Request, res: Response) => {
     const query: any = {};
 
     if (startDate && endDate) {
+      const start = parseLocalDateString(startDate as string);
+      const end = parseLocalDateString(endDate as string);
+      // Set end date to end of day
+      end.setHours(23, 59, 59, 999);
+
       query.createdAt = {
-        $gte: new Date(startDate as string),
-        $lte: new Date(endDate as string)
+        $gte: start,
+        $lte: end,
       };
     }
 
     const analytics = await Visit.aggregate([
       { $match: query },
-      { $unwind: { path: '$treatmentGiven', preserveNullAndEmptyArrays: false } }, // Ensure we only count if it exists
+      {
+        $unwind: { path: "$treatmentGiven", preserveNullAndEmptyArrays: false },
+      }, // Ensure we only count if it exists
       {
         $group: {
-          _id: '$treatmentGiven',
-          count: { $sum: 1 }
-        }
+          _id: "$treatmentGiven",
+          count: { $sum: 1 },
+        },
       },
       { $sort: { count: -1 } },
       {
         $project: {
           _id: 0,
-          treatment: '$_id',
-          count: 1
-        }
-      }
+          treatment: "$_id",
+          count: 1,
+        },
+      },
     ]);
 
     res.status(200).json({ success: true, data: analytics });

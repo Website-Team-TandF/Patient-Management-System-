@@ -1,8 +1,9 @@
-import { SlotWindow } from '../models/SlotWindow';
-import { SlotLock } from '../models/SlotLock';
-import { Appointment } from '../models/Appointment';
-import { Types } from 'mongoose';
-import { v4 as uuidv4 } from 'uuid';
+import { SlotWindow } from "../models/SlotWindow";
+import { SlotLock } from "../models/SlotLock";
+import { Appointment } from "../models/Appointment";
+import { Types } from "mongoose";
+import { v4 as uuidv4 } from "uuid";
+import { parseLocalDateString } from "../utils/timeUtils";
 
 /**
  * Get available slots for a hospital (public endpoint)
@@ -10,18 +11,17 @@ import { v4 as uuidv4 } from 'uuid';
  */
 export const getPublicSlots = async (hospitalId: string, date?: string) => {
   if (!Types.ObjectId.isValid(hospitalId)) {
-    throw new Error('Invalid hospital ID');
+    throw new Error("Invalid hospital ID");
   }
 
   const hospitalObjectId = new Types.ObjectId(hospitalId);
-  
+
   // Build query
   const query: any = { hospitalId: hospitalObjectId };
-  
+
   // Filter by date if provided, otherwise get future slots
   if (date) {
-    const targetDate = new Date(date);
-    targetDate.setHours(0, 0, 0, 0);
+    const targetDate = parseLocalDateString(date);
     const nextDay = new Date(targetDate);
     nextDay.setDate(nextDay.getDate() + 1);
     query.slotDate = { $gte: targetDate, $lt: nextDay };
@@ -34,7 +34,7 @@ export const getPublicSlots = async (hospitalId: string, date?: string) => {
   // Get all slots
   const slots = await SlotWindow.find(query)
     .sort({ slotDate: 1, startTime: 1 })
-    .select('-__v')
+    .select("-__v")
     .lean();
 
   // For each slot, count active locks (not yet booked, not expired)
@@ -55,7 +55,7 @@ export const getPublicSlots = async (hospitalId: string, date?: string) => {
         availableCount: Math.max(0, available),
         isFull: available <= 0,
       };
-    })
+    }),
   );
 
   return slotsWithAvailability;
@@ -71,13 +71,13 @@ export const getNextSlotWindow = async (
   days: number = 7,
 ) => {
   if (!Types.ObjectId.isValid(hospitalId)) {
-    throw new Error('Invalid hospital ID');
+    throw new Error("Invalid hospital ID");
   }
 
   const hospitalObjectId = new Types.ObjectId(hospitalId);
 
   // Determine starting calendar date (midnight)
-  const start = fromDate ? new Date(fromDate) : new Date();
+  const start = fromDate ? parseLocalDateString(fromDate) : new Date();
   start.setHours(0, 0, 0, 0);
 
   // Fetch all future slots for this hospital (from start onwards)
@@ -86,7 +86,7 @@ export const getNextSlotWindow = async (
     slotDate: { $gte: start },
   })
     .sort({ slotDate: 1, startTime: 1 })
-    .select('-__v')
+    .select("-__v")
     .lean();
 
   // If no slots at all, return empty
@@ -130,7 +130,7 @@ export const getNextSlotWindow = async (
  */
 export const createSlotLock = async (slotId: string) => {
   if (!Types.ObjectId.isValid(slotId)) {
-    throw new Error('Invalid slot ID');
+    throw new Error("Invalid slot ID");
   }
 
   const slotObjectId = new Types.ObjectId(slotId);
@@ -138,7 +138,7 @@ export const createSlotLock = async (slotId: string) => {
   // Get the slot
   const slot = await SlotWindow.findById(slotObjectId);
   if (!slot) {
-    throw new Error('Slot not found');
+    throw new Error("Slot not found");
   }
 
   // OPTIMISTIC LOCKING STRATEGY:
@@ -151,7 +151,7 @@ export const createSlotLock = async (slotId: string) => {
 
   const available = slot.maxCapacity - slot.bookedCount - activeLocksCount;
   if (available <= 0) {
-    throw new Error('Slot is no longer available. Please select another slot.');
+    throw new Error("Slot is no longer available. Please select another slot.");
   }
 
   // 2. Insert the lock (Attempt)
@@ -176,7 +176,8 @@ export const createSlotLock = async (slotId: string) => {
     expiresAt: { $gt: new Date() },
   });
 
-  const currentAvailable = slot.maxCapacity - slot.bookedCount - updatedActiveLocksCount;
+  const currentAvailable =
+    slot.maxCapacity - slot.bookedCount - updatedActiveLocksCount;
 
   // If we exceeded capacity (available < 0 because we just added 1, so if it was 0 before, now it's -1),
   // we must rollback. Note: since we added 1, if currentAvailable is < 0, it means we overbooked.
@@ -184,7 +185,7 @@ export const createSlotLock = async (slotId: string) => {
   // If original available was 0, we added 1. remaining = -1. OVERBOOKED.
   if (currentAvailable < 0) {
     await SlotLock.findByIdAndDelete(slotLock._id);
-    throw new Error('Slot is no longer available. Please select another slot.');
+    throw new Error("Slot is no longer available. Please select another slot.");
   }
 
   return {
@@ -205,28 +206,28 @@ export const createSlotLock = async (slotId: string) => {
  */
 export const releaseSlotLock = async (lockId: string) => {
   if (!Types.ObjectId.isValid(lockId)) {
-    throw new Error('Invalid lock ID');
+    throw new Error("Invalid lock ID");
   }
 
   const lock = await SlotLock.findById(lockId);
   if (!lock) {
-    throw new Error('Lock not found');
+    throw new Error("Lock not found");
   }
 
   // Only delete if not already booked
   if (lock.isBooked) {
-    throw new Error('Cannot release a confirmed booking');
+    throw new Error("Cannot release a confirmed booking");
   }
 
   await SlotLock.findByIdAndDelete(lockId);
 
-  return { success: true, message: 'Lock released successfully' };
+  return { success: true, message: "Lock released successfully" };
 };
 
 /**
  * Confirm a booking after successful payment
  */
-import Lead from '../models/Lead';
+import Lead from "../models/Lead";
 
 // ... (existing imports)
 
@@ -246,47 +247,54 @@ export const confirmBooking = async (data: ConfirmBookingData) => {
   const { lockId, leadId, doctorId, doctorName, duration, amount } = data;
 
   if (!Types.ObjectId.isValid(lockId)) {
-    throw new Error('Invalid lock ID');
+    throw new Error("Invalid lock ID");
   }
 
   if (!Types.ObjectId.isValid(leadId)) {
-    throw new Error('Invalid lead ID');
+    throw new Error("Invalid lead ID");
   }
 
   // Fetch Lead details first
   const lead = await Lead.findById(leadId);
   if (!lead) {
-    throw new Error('Lead not found. Cannot proceed with booking.');
+    throw new Error("Lead not found. Cannot proceed with booking.");
   }
 
   // ATOMIC CHECK AND UPDATE
   // Attempt to mark as booked atomically. This prevents double-confirmation race conditions.
   const lock = await SlotLock.findOneAndUpdate(
-    { 
-      _id: lockId, 
-      isBooked: false, 
-      expiresAt: { $gt: new Date() } 
+    {
+      _id: lockId,
+      isBooked: false,
+      expiresAt: { $gt: new Date() },
     },
     { isBooked: true },
-    { new: true }
+    { new: true },
   );
 
   if (!lock) {
-    throw new Error('Lock not found, expired, or already booked. Please try booking again.');
+    throw new Error(
+      "Lock not found, expired, or already booked. Please try booking again.",
+    );
   }
 
   try {
     // Get the slot
     const slot = await SlotWindow.findById(lock.slotWindowId);
     if (!slot) {
-      throw new Error('Slot not found');
+      throw new Error("Slot not found");
     }
 
     // Helper to generate ID: 3 Uppercase Letters + 7 Digits
     const generateAppointmentId = () => {
       const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-      const randomLetters = Array(3).fill(null).map(() => letters.charAt(Math.floor(Math.random() * letters.length))).join('');
-      const randomDigits = Math.floor(Math.random() * 10000000).toString().padStart(7, '0');
+      const randomLetters = Array(3)
+        .fill(null)
+        .map(() => letters.charAt(Math.floor(Math.random() * letters.length)))
+        .join("");
+      const randomDigits = Math.floor(Math.random() * 10000000)
+        .toString()
+        .padStart(7, "0");
       return `${randomLetters}${randomDigits}`;
     };
 
@@ -298,7 +306,7 @@ export const confirmBooking = async (data: ConfirmBookingData) => {
     while (retries > 0 && !saved) {
       try {
         const appointmentId = generateAppointmentId();
-        
+
         appointment = new Appointment({
           appointmentId,
           name: lead.name,
@@ -306,8 +314,8 @@ export const confirmBooking = async (data: ConfirmBookingData) => {
           phoneNo: lead.phoneNumber,
           healthIssue: lead.healthIssue,
           hospitalId: slot.hospitalId,
-          mode: 'offline', // Default to offline for slot bookings
-          status: 'booked',
+          mode: "offline", // Default to offline for slot bookings
+          status: "booked",
           amountPaid: amount,
           duration: duration,
           appointmentDate: slot.slotDate,
@@ -324,7 +332,9 @@ export const confirmBooking = async (data: ConfirmBookingData) => {
       } catch (err: any) {
         // Check for duplicate key error (code 11000)
         if (err.code === 11000 && retries > 1) {
-          console.warn(`Duplicate appointment ID generated, retrying... (${retries - 1} retries left)`);
+          console.warn(
+            `Duplicate appointment ID generated, retrying... (${retries - 1} retries left)`,
+          );
           retries--;
           continue;
         }
@@ -334,7 +344,7 @@ export const confirmBooking = async (data: ConfirmBookingData) => {
     }
 
     if (!appointment) {
-      throw new Error('Failed to create appointment after retries');
+      throw new Error("Failed to create appointment after retries");
     }
 
     // Increment bookedCount on the slot

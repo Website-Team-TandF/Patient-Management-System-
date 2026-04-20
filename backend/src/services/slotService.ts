@@ -1,6 +1,7 @@
 import { SlotWindow } from "../models/SlotWindow";
 import { Appointment } from "../models/Appointment";
 import { Types } from "mongoose";
+import { parseLocalDateString } from "../utils/timeUtils";
 
 export interface CreateSlotsData {
   hospitalId: string;
@@ -94,10 +95,8 @@ export const createSlots = async (
   const { slotDuration, maxCapacity, startDate, endDate, startTime, endTime } =
     slotData;
 
-  const start = new Date(startDate);
-  start.setHours(0, 0, 0, 0);
-  const end = new Date(endDate);
-  end.setHours(0, 0, 0, 0);
+  const start = parseLocalDateString(startDate);
+  const end = parseLocalDateString(endDate);
 
   if (start > end) {
     throw new Error("Start date cannot be after end date");
@@ -269,8 +268,7 @@ export const deleteSlotsByDate = async (
   hospitalObjectId: Types.ObjectId,
   dateStr: string,
 ) => {
-  const date = new Date(dateStr);
-  date.setHours(0, 0, 0, 0);
+  const date = parseLocalDateString(dateStr);
 
   // Find all slots for this hospital and date
   const slots = await SlotWindow.find({

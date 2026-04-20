@@ -31,6 +31,14 @@ api.interceptors.request.use((config) => {
 // Mock delay helper
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
+// Date formatting helper
+const formatLocalDate = (date: Date): string => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
+
 // --- Hospital Services ---
 
 export const getHospitals = async (
@@ -204,8 +212,8 @@ export const createSlots = async (
     hospitalId,
     slotDuration,
     maxCapacity,
-    startDate: startDate.toISOString(),
-    endDate: endDate.toISOString(),
+    startDate: formatLocalDate(startDate),
+    endDate: formatLocalDate(endDate),
     startTime: startTimeStr,
     endTime: endTimeStr,
   });
