@@ -1,7 +1,6 @@
 import { SlotWindow } from "../models/SlotWindow";
 import { Appointment } from "../models/Appointment";
 import { Types } from "mongoose";
-import { parseLocalDateString } from "../utils/timeUtils";
 
 export interface CreateSlotsData {
   hospitalId: string;
@@ -95,17 +94,23 @@ export const createSlots = async (
   const { slotDuration, maxCapacity, startDate, endDate, startTime, endTime } =
     slotData;
 
-  const start = parseLocalDateString(startDate);
-  const end = parseLocalDateString(endDate);
+  const startStr = startDate.includes("T") ? startDate.split("T")[0] : startDate;
+  const endStr = endDate.includes("T") ? endDate.split("T")[0] : endDate;
+
+  // Explicitly construct UTC dates that represent the exact IST time
+  const start = new Date(`${startStr}T00:00:00+05:30`);
+  const end = new Date(`${endStr}T00:00:00+05:30`);
 
   if (start > end) {
     throw new Error("Start date cannot be after end date");
   }
 
   const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  const istNow = new Date(today.getTime() + 5.5 * 60 * 60 * 1000);
+  const todayISTStr = istNow.toISOString().split("T")[0];
+  const todayISTStart = new Date(`${todayISTStr}T00:00:00+05:30`);
 
-  if (start < today) {
+  if (start < todayISTStart) {
     throw new Error("Start date cannot be in the past");
   }
 
@@ -118,8 +123,8 @@ export const createSlots = async (
   }
 
   // Check 30-day limit from today for any slots
-  const thirtyDaysFromNow = new Date(today);
-  thirtyDaysFromNow.setDate(today.getDate() + 30);
+  const thirtyDaysFromNow = new Date(todayISTStart);
+  thirtyDaysFromNow.setDate(todayISTStart.getDate() + 30);
   if (end > thirtyDaysFromNow) {
     throw new Error("Cannot create slots more than 30 days into the future");
   }
@@ -137,21 +142,18 @@ export const createSlots = async (
   const slotsToCreate: any[] = [];
 
   for (let day = 0; day < numberOfDays; day++) {
-    const slotDate = new Date(start);
-    slotDate.setDate(start.getDate() + day);
-    slotDate.setHours(0, 0, 0, 0);
+    const currentDay = new Date(start.getTime() + day * 24 * 60 * 60 * 1000);
+    // currentDay represents 00:00 IST in UTC. Convert to IST string to get correct YYYY-MM-DD
+    const currentDayIST = new Date(currentDay.getTime() + 5.5 * 60 * 60 * 1000);
+    const dayStr = currentDayIST.toISOString().split("T")[0];
+
+    const slotDate = new Date(`${dayStr}T00:00:00+05:30`);
 
     let slotNumber = 1; // Initialize slot number for each day
     for (const timeSlot of timeSlots) {
-      // Combine slotDate and time string to create a proper Date object
-      const [startH, startM] = timeSlot.startTime.split(":").map(Number);
-      const [endH, endM] = timeSlot.endTime.split(":").map(Number);
-
-      const startTimeDate = new Date(slotDate);
-      startTimeDate.setHours(startH, startM, 0, 0);
-
-      const endTimeDate = new Date(slotDate);
-      endTimeDate.setHours(endH, endM, 0, 0);
+      // Combine slotDate and time string to create a proper Date object explicitly in IST
+      const startTimeDate = new Date(`${dayStr}T${timeSlot.startTime}:00+05:30`);
+      const endTimeDate = new Date(`${dayStr}T${timeSlot.endTime}:00+05:30`);
 
       slotsToCreate.push({
         hospitalId: hospitalObjectId,
@@ -184,12 +186,15 @@ export const getSlotsByHospital = async (
 ): Promise<PaginatedResult<any>> => {
   const { page, limit } = options;
   const skip = (page - 1) * limit;
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+
+  const now = new Date();
+  const istNow = new Date(now.getTime() + 5.5 * 60 * 60 * 1000);
+  const todayISTStr = istNow.toISOString().split("T")[0];
+  const todayISTStart = new Date(`${todayISTStr}T00:00:00+05:30`);
 
   const slots = await SlotWindow.find({
     hospitalId: hospitalObjectId,
-    startTime: { $gte: today },
+    startTime: { $gte: todayISTStart },
   })
     .sort({ slotDate: 1, startTime: 1 })
     .skip(skip)
@@ -268,12 +273,13 @@ export const deleteSlotsByDate = async (
   hospitalObjectId: Types.ObjectId,
   dateStr: string,
 ) => {
-  const date = parseLocalDateString(dateStr);
+  const datePart = dateStr.includes("T") ? dateStr.split("T")[0] : dateStr;
+  const targetDate = new Date(`${datePart}T00:00:00+05:30`);
 
   // Find all slots for this hospital and date
   const slots = await SlotWindow.find({
     hospitalId: hospitalObjectId,
-    slotDate: date,
+    slotDate: targetDate,
   });
 
   if (slots.length === 0) {
@@ -291,7 +297,7 @@ export const deleteSlotsByDate = async (
   // Delete all slots for this date
   await SlotWindow.deleteMany({
     hospitalId: hospitalObjectId,
-    slotDate: date,
+    slotDate: targetDate,
   });
 
   return { deletedCount: slots.length };

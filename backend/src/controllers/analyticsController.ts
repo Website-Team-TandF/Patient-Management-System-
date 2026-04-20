@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { Visit } from "../models/Visit";
-import { parseLocalDateString } from "../utils/timeUtils";
 
 export const getHospitalVisitsAnalytics = async (
   req: Request,
@@ -11,14 +10,9 @@ export const getHospitalVisitsAnalytics = async (
     const query: any = {};
 
     if (startDate && endDate) {
-      const start = parseLocalDateString(startDate as string);
-      const end = parseLocalDateString(endDate as string);
-      // Set end date to end of day
-      end.setHours(23, 59, 59, 999);
-
       query.createdAt = {
-        $gte: start,
-        $lte: end,
+        $gte: new Date(startDate as string),
+        $lte: new Date(endDate as string),
       };
     }
 
@@ -63,14 +57,9 @@ export const getDiseaseAnalytics = async (req: Request, res: Response) => {
     const query: any = {};
 
     if (startDate && endDate) {
-      const start = parseLocalDateString(startDate as string);
-      const end = parseLocalDateString(endDate as string);
-      // Set end date to end of day
-      end.setHours(23, 59, 59, 999);
-
       query.createdAt = {
-        $gte: start,
-        $lte: end,
+        $gte: new Date(startDate as string),
+        $lte: new Date(endDate as string),
       };
     }
 
@@ -105,14 +94,9 @@ export const getTreatmentAnalytics = async (req: Request, res: Response) => {
     const query: any = {};
 
     if (startDate && endDate) {
-      const start = parseLocalDateString(startDate as string);
-      const end = parseLocalDateString(endDate as string);
-      // Set end date to end of day
-      end.setHours(23, 59, 59, 999);
-
       query.createdAt = {
-        $gte: start,
-        $lte: end,
+        $gte: new Date(startDate as string),
+        $lte: new Date(endDate as string),
       };
     }
 

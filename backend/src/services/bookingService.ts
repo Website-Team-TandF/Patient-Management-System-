@@ -3,7 +3,6 @@ import { SlotLock } from "../models/SlotLock";
 import { Appointment } from "../models/Appointment";
 import { Types } from "mongoose";
 import { v4 as uuidv4 } from "uuid";
-import { parseLocalDateString } from "../utils/timeUtils";
 
 /**
  * Get available slots for a hospital (public endpoint)
@@ -21,7 +20,8 @@ export const getPublicSlots = async (hospitalId: string, date?: string) => {
 
   // Filter by date if provided, otherwise get future slots
   if (date) {
-    const targetDate = parseLocalDateString(date);
+    const targetDate = new Date(date);
+    targetDate.setHours(0, 0, 0, 0);
     const nextDay = new Date(targetDate);
     nextDay.setDate(nextDay.getDate() + 1);
     query.slotDate = { $gte: targetDate, $lt: nextDay };
@@ -77,7 +77,7 @@ export const getNextSlotWindow = async (
   const hospitalObjectId = new Types.ObjectId(hospitalId);
 
   // Determine starting calendar date (midnight)
-  const start = fromDate ? parseLocalDateString(fromDate) : new Date();
+  const start = fromDate ? new Date(fromDate) : new Date();
   start.setHours(0, 0, 0, 0);
 
   // Fetch all future slots for this hospital (from start onwards)
