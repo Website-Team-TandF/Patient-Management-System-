@@ -7,7 +7,7 @@ export const connectDB = async (): Promise<void> => {
       autoIndex: true,
     });
 
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
+    console.log(`MongoDB Connected: ${conn.connection.host} | Database: ${conn.connection.name}`);
   } catch (error: any) {
     console.error(`Error: ${error.message}`);
     process.exit(1);
