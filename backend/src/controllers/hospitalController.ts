@@ -18,7 +18,7 @@ export const getAllHospitals = async (
 ): Promise<void> => {
   try {
     const page = parseInt(req.query.page as string) || 1;
-    const limit = parseInt(req.query.limit as string) || 10;
+    const limit = parseInt(req.query.limit as string) || 50;
 
     const result = await getAllHospitalsService({ page, limit });
 
