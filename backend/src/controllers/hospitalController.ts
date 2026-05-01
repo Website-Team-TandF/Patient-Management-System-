@@ -4,6 +4,7 @@ import {
   createHospital as createHospitalService,
   updateHospital as updateHospitalService,
   getHospitalById as getHospitalByIdService,
+  deleteHospital as deleteHospitalService,
   CreateHospitalData,
   UpdateHospitalData,
 } from "../services/hospitalService";
@@ -18,7 +19,7 @@ export const getAllHospitals = async (
 ): Promise<void> => {
   try {
     const page = parseInt(req.query.page as string) || 1;
-    const limit = parseInt(req.query.limit as string) || 50;
+    const limit = parseInt(req.query.limit as string) || 10;
 
     const result = await getAllHospitalsService({ page, limit });
 
@@ -148,6 +149,38 @@ export const getHospitalById = async (
       .json({
         success: false,
         message: "Error fetching hospital",
+        error: error.message,
+      });
+  }
+};
+
+export const deleteHospital = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
+  try {
+    const { hospitalId } = req.params;
+
+    const result = await deleteHospitalService(hospitalId as string);
+
+    res.status(200).json({
+      success: true,
+      message: result.message,
+    });
+  } catch (error: any) {
+    if (error.message === "Hospital not found") {
+      res.status(404).json({ success: false, message: error.message });
+      return;
+    }
+    if (error.message.includes("Cannot delete hospital")) {
+      res.status(400).json({ success: false, message: error.message });
+      return;
+    }
+    res
+      .status(500)
+      .json({
+        success: false,
+        message: "Error deleting hospital",
         error: error.message,
       });
   }

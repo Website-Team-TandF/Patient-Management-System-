@@ -85,6 +85,17 @@ export const updateHospital = async (
   return { ...data, id: data._id };
 };
 
+export const deleteHospital = async (id: string): Promise<void> => {
+  if (USE_MOCK) {
+    await delay(500);
+    const index = mockHospitals.findIndex((h) => h.id === id);
+    if (index === -1) throw new Error("Hospital not found");
+    mockHospitals.splice(index, 1);
+    return;
+  }
+  await api.delete(`/hospitals/${id}`);
+};
+
 // --- Slot Services ---
 
 export const getSlots = async (

@@ -1,4 +1,6 @@
 import { Hospital } from "../models/Hospital";
+import { SlotWindow } from "../models/SlotWindow";
+import { Appointment } from "../models/Appointment";
 import { Types } from "mongoose";
 
 export interface CreateHospitalData {
@@ -39,12 +41,46 @@ export const getAllHospitals = async (
     .sort({ createdAt: -1 })
     .skip(skip)
     .limit(limit)
-    .select("-__v");
+    .select("-__v")
+    .lean();
 
   const total = await Hospital.countDocuments();
 
+  // Aggregate slot time ranges for each hospital
+  const hospitalIds = hospitals.map((h: any) => h._id);
+  const slotTimeRanges = await SlotWindow.aggregate([
+    { $match: { hospitalId: { $in: hospitalIds } } },
+    {
+      $group: {
+        _id: "$hospitalId",
+        earliestStart: { $min: "$startTime" },
+        latestEnd: { $max: "$endTime" },
+        totalSlots: { $sum: 1 },
+      },
+    },
+  ]);
+
+  // Build a map of hospitalId -> time range
+  const timeRangeMap: Record<string, any> = {};
+  for (const range of slotTimeRanges) {
+    timeRangeMap[range._id.toString()] = {
+      earliestStart: range.earliestStart,
+      latestEnd: range.latestEnd,
+      totalSlots: range.totalSlots,
+    };
+  }
+
+  // Merge time ranges into hospital data
+  const enrichedHospitals = hospitals.map((h: any) => {
+    const timeRange = timeRangeMap[h._id.toString()];
+    return {
+      ...h,
+      slotTimeRange: timeRange || null,
+    };
+  });
+
   return {
-    data: hospitals,
+    data: enrichedHospitals,
     pagination: {
       page,
       limit,
@@ -115,6 +151,40 @@ export const updateHospital = async (
   }
 
   return hospital;
+};
+
+/**
+ * Delete hospital and all its related slots
+ */
+export const deleteHospital = async (id: string) => {
+  if (!Types.ObjectId.isValid(id)) {
+    throw new Error("Invalid hospital ID");
+  }
+
+  const hospital = await Hospital.findById(id);
+  if (!hospital) {
+    throw new Error("Hospital not found");
+  }
+
+  // Check for active appointments
+  const activeAppointments = await Appointment.countDocuments({
+    hospitalId: new Types.ObjectId(id),
+    status: { $nin: ["cancelled", "completed"] },
+  });
+
+  if (activeAppointments > 0) {
+    throw new Error(
+      `Cannot delete hospital: ${activeAppointments} active appointment(s) exist. Cancel or complete them first.`
+    );
+  }
+
+  // Delete all slots for this hospital
+  await SlotWindow.deleteMany({ hospitalId: new Types.ObjectId(id) });
+
+  // Delete the hospital
+  await Hospital.findByIdAndDelete(id);
+
+  return { message: "Hospital and all associated slots deleted successfully" };
 };
 
 /**

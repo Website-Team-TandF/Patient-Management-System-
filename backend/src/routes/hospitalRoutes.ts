@@ -6,6 +6,7 @@ import {
   createHospital,
   updateHospital,
   getHospitalById,
+  deleteHospital,
 } from '../controllers/hospitalController';
 
 const router = Router();
@@ -31,6 +32,9 @@ router.get('/:hospitalId', requireRole(['admin']), getHospitalById);
 
 // Update hospital - Admin only
 router.put('/:hospitalId', requireRole(['admin']), updateHospital);
+
+// Delete hospital - Admin only
+router.delete('/:hospitalId', requireRole(['admin']), deleteHospital);
 
 // ============================================
 // Add other user role routes here (doctor, receptionist, etc.)

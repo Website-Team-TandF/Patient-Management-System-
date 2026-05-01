@@ -1,29 +1,48 @@
 import React, { useState, useEffect } from 'react';
-import { Edit2, Calendar, Plus, MapPin, Building2, Clock } from 'lucide-react';
+import { Edit2, Calendar, Plus, MapPin, Building2, Clock, Trash2 } from 'lucide-react';
 import { type Hospital } from '../../../services/mocks/hospitalData';
-import { getHospitals } from '../../../services/api';
+import { getHospitals, deleteHospital } from '../../../services/api';
 import HospitalFormModal from './HospitalFormModal';
 import SlotManagerModal from './SlotManagerModal';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
+import toast from 'react-hot-toast';
+
+interface HospitalWithSlots extends Hospital {
+  slotTimeRange?: {
+    earliestStart: string;
+    latestEnd: string;
+    totalSlots: number;
+  } | null;
+}
+
+/** Format a UTC ISO string to IST HH:mm (e.g. "09:00") */
+const formatSlotTimeIST = (isoString: string): string => {
+  const date = new Date(isoString);
+  // Convert to IST by adding 5:30
+  const istMs = date.getTime() + (5.5 * 60 * 60 * 1000);
+  const istDate = new Date(istMs);
+  const hours = istDate.getUTCHours().toString().padStart(2, '0');
+  const minutes = istDate.getUTCMinutes().toString().padStart(2, '0');
+  return `${hours}:${minutes}`;
+};
 
 const HospitalList: React.FC = () => {
-  const [hospitals, setHospitals] = useState<Hospital[]>([]);
+  const [hospitals, setHospitals] = useState<HospitalWithSlots[]>([]);
   const [loading, setLoading] = useState(true);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingHospital, setEditingHospital] = useState<Hospital | null>(null);
   const [selectedHospital, setSelectedHospital] = useState<Hospital | null>(null);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
 
   const fetchHospitals = async () => {
     setLoading(true);
     try {
-      const response = await getHospitals();
-      // Handle both mock (object) and real (array) responses if needed, 
-      // but based on api.ts mock returns { data, total }
+      const response = await getHospitals(1, 100);
       const data = 'data' in response ? response.data : response;
-      setHospitals(data as Hospital[]);
+      setHospitals(data as HospitalWithSlots[]);
     } catch (error) {
       console.error('Failed to fetch hospitals', error);
     } finally {
@@ -47,6 +66,23 @@ const HospitalList: React.FC = () => {
   const handleAddNew = () => {
     setEditingHospital(null);
     setIsFormOpen(true);
+  };
+
+  const handleDelete = async (hospital: HospitalWithSlots) => {
+    if (!confirm(`Are you sure you want to delete "${hospital.name}"? This will also delete all associated slots.`)) {
+      return;
+    }
+    setDeletingId(hospital.id);
+    try {
+      await deleteHospital(hospital.id);
+      toast.success(`"${hospital.name}" deleted successfully`);
+      fetchHospitals();
+    } catch (error: any) {
+      const message = error?.response?.data?.message || error.message || 'Failed to delete hospital';
+      toast.error(message);
+    } finally {
+      setDeletingId(null);
+    }
   };
 
   if (loading) {
@@ -98,12 +134,20 @@ const HospitalList: React.FC = () => {
               <div className="flex items-center gap-4 text-sm text-muted-foreground bg-muted/30 p-3 rounded-md">
                 <div className="flex items-center gap-2">
                   <Clock size={16} className="text-primary/60" />
-                  <span>09:00 - 21:00</span>
+                  <span>
+                    {hospital.slotTimeRange
+                      ? `${formatSlotTimeIST(hospital.slotTimeRange.earliestStart)} - ${formatSlotTimeIST(hospital.slotTimeRange.latestEnd)}`
+                      : 'No slots configured'}
+                  </span>
                 </div>
                 <div className="h-4 w-[1px] bg-border" />
                 <div className="flex items-center gap-2">
                   <Calendar size={16} className="text-primary/60" />
-                  <span>Daily</span>
+                  <span>
+                    {hospital.slotTimeRange
+                      ? `${hospital.slotTimeRange.totalSlots} slots`
+                      : '0 slots'}
+                  </span>
                 </div>
               </div>
             </CardContent>
@@ -123,6 +167,16 @@ const HospitalList: React.FC = () => {
                 onClick={() => handleEdit(hospital)}
               >
                 <Edit2 size={16} />
+              </Button>
+              <Button 
+                variant="ghost" 
+                size="icon"
+                className="text-muted-foreground hover:text-destructive hover:bg-destructive/10"
+                onClick={() => handleDelete(hospital)}
+                disabled={deletingId === hospital.id}
+                title="Delete clinic"
+              >
+                <Trash2 size={16} />
               </Button>
             </CardFooter>
           </Card>
