@@ -16,7 +16,7 @@ if (import.meta.env.MODE === "production" && !definedApiUrl) {
 }
 
 const API_URL = definedApiUrl || (import.meta.env.MODE === "production" ? "/api" : "http://localhost:3000/api");
-const USE_MOCK = import.meta.env.MODE !== "production" && !API_URL;
+const USE_MOCK = import.meta.env.VITE_USE_MOCK === "true" || (import.meta.env.MODE !== "production" && !API_URL);
 
 const api = axios.create({
   baseURL: API_URL,
@@ -575,7 +575,7 @@ export const login = async (email: string, password: string): Promise<any> => {
         email: user.email,
         roles: user.userRoles,
       },
-      token: "mock-token",
+      token: `mock-token-${user.email}`,
     };
   }
   const response = await api.post("/users/login", { email, password });
@@ -593,15 +593,21 @@ export const logout = async (): Promise<void> => {
 export const getCurrentUser = async (): Promise<any> => {
   if (USE_MOCK) {
     await delay(500);
-    // Return first mock user as default in mock mode
-    const user = mockUsers[0];
-    return {
-      user: {
-        name: user.fullName,
-        email: user.email,
-        roles: user.userRoles,
-      },
-    };
+    const token = localStorage.getItem("authToken");
+    if (token && token.startsWith("mock-token-")) {
+      const email = token.replace("mock-token-", "");
+      const user = mockUsers.find((u) => u.email === email);
+      if (user) {
+        return {
+          user: {
+            name: user.fullName,
+            email: user.email,
+            roles: user.userRoles,
+          },
+        };
+      }
+    }
+    throw new Error("Not authenticated");
   }
   const response = await api.get("/users/me");
   return response.data.data;
