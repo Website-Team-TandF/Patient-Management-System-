@@ -37,9 +37,9 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     // Use SameSite=None for cross-origin requests from localhost:5173 -> localhost:3000
     const isProduction = process.env.NODE_ENV === "production";
     res.cookie("token", result.token, {
-      // httpOnly: true,
+      httpOnly: true,
       secure: isProduction, // secure only in production when HTTPS is used
-      sameSite: "none",
+      sameSite: isProduction ? "none" : "lax",
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
     });
 
@@ -339,7 +339,7 @@ export const logout = async (_req: Request, res: Response): Promise<void> => {
     res.cookie("token", "", {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
       maxAge: 0, // Immediately expire the cookie
     });
 

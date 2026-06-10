@@ -19,16 +19,18 @@ export const getPublicSlots = async (hospitalId: string, date?: string) => {
   const query: any = { hospitalId: hospitalObjectId };
 
   // Filter by date if provided, otherwise get future slots
+  // IMPORTANT: slotDate is stored as IST midnight in UTC (e.g. June 11 00:00 IST = June 10 18:30 UTC)
+  // So we must construct our query boundaries using the +05:30 offset
   if (date) {
-    const targetDate = new Date(date);
-    targetDate.setHours(0, 0, 0, 0);
-    const nextDay = new Date(targetDate);
-    nextDay.setDate(nextDay.getDate() + 1);
+    const targetDate = new Date(`${date}T00:00:00+05:30`);
+    const nextDay = new Date(targetDate.getTime() + 24 * 60 * 60 * 1000);
     query.slotDate = { $gte: targetDate, $lt: nextDay };
   } else {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    query.slotDate = { $gte: today };
+    const todayISTStr = new Date(new Date().getTime() + 5.5 * 60 * 60 * 1000)
+      .toISOString()
+      .split('T')[0];
+    const todayStart = new Date(`${todayISTStr}T00:00:00+05:30`);
+    query.slotDate = { $gte: todayStart };
   }
 
   // Get all slots
@@ -76,9 +78,17 @@ export const getNextSlotWindow = async (
 
   const hospitalObjectId = new Types.ObjectId(hospitalId);
 
-  // Determine starting calendar date (midnight)
-  const start = fromDate ? new Date(fromDate) : new Date();
-  start.setHours(0, 0, 0, 0);
+  // Determine starting calendar date — use IST midnight as start boundary
+  // slotDate is stored as IST midnight in UTC (e.g. June 11 00:00 IST = June 10 18:30 UTC)
+  let start: Date;
+  if (fromDate) {
+    start = new Date(`${fromDate}T00:00:00+05:30`);
+  } else {
+    const todayISTStr = new Date(new Date().getTime() + 5.5 * 60 * 60 * 1000)
+      .toISOString()
+      .split('T')[0];
+    start = new Date(`${todayISTStr}T00:00:00+05:30`);
+  }
 
   // Fetch all future slots for this hospital (from start onwards)
   const slots = await SlotWindow.find({
@@ -95,13 +105,16 @@ export const getNextSlotWindow = async (
   }
 
   // Collect unique dates in ascending order
+  // IMPORTANT: slotDate is stored in UTC as IST midnight (e.g. 2026-06-10T18:30Z = June 11 IST)
+  // We must add the IST offset (+5:30) to recover the correct IST calendar date string
+  const IST_OFFSET_MS = 5.5 * 60 * 60 * 1000;
   const seen = new Set<string>();
   const dateBuckets: { [date: string]: typeof slots } = {};
 
   for (const slot of slots) {
-    const d = new Date(slot.slotDate);
-    d.setHours(0, 0, 0, 0);
-    const key = d.toISOString();
+    // Convert UTC stored date → IST date, then extract YYYY-MM-DD
+    const istDate = new Date(slot.slotDate.getTime() + IST_OFFSET_MS);
+    const key = istDate.toISOString().split('T')[0]; // e.g. "2026-06-11"
     if (!seen.has(key)) {
       seen.add(key);
       dateBuckets[key] = [];

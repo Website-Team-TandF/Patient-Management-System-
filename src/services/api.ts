@@ -6,11 +6,16 @@ import { v4 as uuidv4 } from "uuid";
 
 // Check if API URL is defined
 const definedApiUrl = import.meta.env.VITE_API_URL?.trim();
-const API_URL = definedApiUrl
-  ? definedApiUrl
-  : import.meta.env.MODE === "production"
-    ? "https://patient-management-system-h5s9.onrender.com/api"
-    : "http://localhost:3000/api";
+
+// Validate API URL in production
+if (import.meta.env.MODE === "production" && !definedApiUrl) {
+  console.error(
+    "CRITICAL: VITE_API_URL is not set in production. API calls will fail. " +
+    "Please set VITE_API_URL in your .env.production file."
+  );
+}
+
+const API_URL = definedApiUrl || (import.meta.env.MODE === "production" ? "" : "http://localhost:3000/api");
 const USE_MOCK = !API_URL;
 
 const api = axios.create({
