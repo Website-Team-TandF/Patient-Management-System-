@@ -15,8 +15,8 @@ if (import.meta.env.MODE === "production" && !definedApiUrl) {
   );
 }
 
-const API_URL = definedApiUrl || (import.meta.env.MODE === "production" ? "" : "http://localhost:3000/api");
-const USE_MOCK = !API_URL;
+const API_URL = definedApiUrl || (import.meta.env.MODE === "production" ? "/api" : "http://localhost:3000/api");
+const USE_MOCK = import.meta.env.MODE !== "production" && !API_URL;
 
 const api = axios.create({
   baseURL: API_URL,
