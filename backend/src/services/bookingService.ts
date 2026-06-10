@@ -19,18 +19,16 @@ export const getPublicSlots = async (hospitalId: string, date?: string) => {
   const query: any = { hospitalId: hospitalObjectId };
 
   // Filter by date if provided, otherwise get future slots
-  // IMPORTANT: slotDate is stored as IST midnight in UTC (e.g. June 11 00:00 IST = June 10 18:30 UTC)
-  // So we must construct our query boundaries using the +05:30 offset
   if (date) {
-    const targetDate = new Date(`${date}T00:00:00+05:30`);
-    const nextDay = new Date(targetDate.getTime() + 24 * 60 * 60 * 1000);
+    const targetDate = new Date(date);
+    targetDate.setHours(0, 0, 0, 0);
+    const nextDay = new Date(targetDate);
+    nextDay.setDate(nextDay.getDate() + 1);
     query.slotDate = { $gte: targetDate, $lt: nextDay };
   } else {
-    const todayISTStr = new Date(new Date().getTime() + 5.5 * 60 * 60 * 1000)
-      .toISOString()
-      .split('T')[0];
-    const todayStart = new Date(`${todayISTStr}T00:00:00+05:30`);
-    query.slotDate = { $gte: todayStart };
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    query.slotDate = { $gte: today };
   }
 
   // Get all slots
