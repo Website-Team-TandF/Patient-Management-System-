@@ -5,6 +5,7 @@ import {
   checkInAppointment,
   getAdminAppointments,
   getAdminAppointmentAnalysis,
+  getAppointmentsByRange,
 } from "../controllers/appointmentController";
 import { authMiddleware } from "../middlewares/authMiddleware";
 import { requireRole } from "../middlewares/roleMiddleware";
@@ -17,6 +18,14 @@ router.get(
   authMiddleware,
   requireRole(["receptionist", "admin"]),
   getTodaysAppointments
+);
+// Date-range appointments — receptionist weekly/monthly/custom view
+// NOTE: must be placed BEFORE /:appointmentId to avoid Express matching 'range' as an ID
+router.get(
+  "/range",
+  authMiddleware,
+  requireRole(["receptionist", "admin"]),
+  getAppointmentsByRange
 );
 router.get(
   "/:appointmentId",

@@ -5,6 +5,7 @@ import {
   updateAppointmentStatus as updateAppointmentStatusService,
   getAdminAppointments as getAdminAppointmentsService,
   getAdminAppointmentAnalysis as getAdminAppointmentAnalysisService,
+  getAppointmentsByHospitalAndDateRange,
 } from '../services/appointmentService';
 import { findHospitalObjectId } from '../services/hospitalService';
 
@@ -101,3 +102,35 @@ export const getAdminAppointmentAnalysis = async (_req: Request, res: Response):
   }
 };
 
+/**
+ * GET /appointments/range?hospitalId=xxx&from=2026-06-11&to=2026-06-18&page=1&limit=20
+ * Returns appointments within a date range — for receptionist weekly / monthly view.
+ */
+export const getAppointmentsByRange = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { hospitalId, from, to } = req.query;
+    const page  = parseInt(req.query.page  as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 20;
+
+    if (!hospitalId || !from || !to) {
+      res.status(400).json({ success: false, message: 'hospitalId, from and to are required' });
+      return;
+    }
+
+    const hospital = await findHospitalObjectId(hospitalId as string);
+    const result = await getAppointmentsByHospitalAndDateRange(
+      hospital._id,
+      from as string,
+      to   as string,
+      { page, limit }
+    );
+
+    res.status(200).json({
+      success: true,
+      data: result.data,
+      pagination: result.pagination,
+    });
+  } catch (error: any) {
+    res.status(500).json({ success: false, message: 'Error fetching appointments by range', error: error.message });
+  }
+};

@@ -659,6 +659,53 @@ export const getTodaysAppointments = async (
   };
 };
 
+/**
+ * Get appointments for a hospital within a custom date range.
+ * Used by the receptionist for weekly / monthly / future date views.
+ * @param hospitalId - Hospital ID
+ * @param from       - Start date string 'YYYY-MM-DD'
+ * @param to         - End date string   'YYYY-MM-DD'
+ */
+export const getAppointmentsByDateRange = async (
+  hospitalId: string,
+  from: string,
+  to: string,
+  page: number = 1,
+  limit: number = 20,
+): Promise<{ data: Appointment[]; total: number }> => {
+  if (USE_MOCK) {
+    await delay(500);
+    const fromDate = new Date(from); fromDate.setHours(0, 0, 0, 0);
+    const toDate   = new Date(to);   toDate.setHours(23, 59, 59, 999);
+    const filtered = [...mockAppointments]
+      .filter((a) => {
+        if (a.hospitalId !== hospitalId) return false;
+        const d = new Date(a.startTime);
+        return d >= fromDate && d <= toDate;
+      })
+      .sort((a, b) => new Date(a.startTime).getTime() - new Date(b.startTime).getTime());
+    return {
+      data: filtered.slice((page - 1) * limit, page * limit),
+      total: filtered.length,
+    };
+  }
+  const response = await api.get(`/appointments/range`, {
+    params: { hospitalId, from, to, page, limit },
+  });
+  const { data, pagination } = response.data;
+  return {
+    data: data.map((apt: any) => ({
+      ...apt,
+      id: apt.appointmentId,
+      patientName: apt.name,
+      phoneNumber: apt.phoneNo,
+      startTime: apt.slotStartTime,
+      endTime: apt.slotEndTime,
+    })),
+    total: pagination.total,
+  };
+};
+
 export const filterAppointmentById = async (
   appointmentId: string,
 ): Promise<Appointment | null> => {

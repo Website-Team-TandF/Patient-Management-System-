@@ -5,12 +5,12 @@ import { DashboardLayout, type SidebarItem } from '@/components/layout/Dashboard
 import type { Hospital } from '@/services/mocks/hospitalData';
 import HospitalSelector from '@/components/shared/HospitalSelector';
 import AppointmentsTab from './components/AppointmentsTab';
-import VisitsTab from '../doctor/components/VisitsTab';
+import ReceptionistVisitsTab from './components/ReceptionistVisitsTab';
 import { getHospitals } from '@/services/api';
 
 const receptionistMenuItems: SidebarItem[] = [
   { id: 'appointments', label: 'Appointments', icon: Calendar },
-  { id: 'visits', label: "Today's Visits", icon: ClipboardList },
+  { id: 'visits', label: 'Visits', icon: ClipboardList },
   { id: 'patients', label: 'Patients', icon: Users },
   { id: 'settings', label: 'Settings', icon: Settings },
 ];
@@ -107,10 +107,10 @@ const ReceptionistDashboard: React.FC = () => {
             <HospitalSelector
               onSelect={handleHospitalSelect}
               title="Select Hospital"
-              description="Choose the hospital to view today's visits"
+              description="Choose the hospital to view visits and appointments"
             />
           ) : (
-            <VisitsTab hospitalId={selectedHospital.id} />
+            <ReceptionistVisitsTab hospitalId={selectedHospital.id} />
           )}
         </>
       )}

@@ -158,3 +158,41 @@ export const getAppointmentByObjectId = async (id: Types.ObjectId) => {
   }
   return appointment;
 };
+
+/**
+ * Get appointments for a hospital within a date range.
+ * Used by the receptionist for weekly / monthly / custom-range views.
+ */
+export const getAppointmentsByHospitalAndDateRange = async (
+  hospitalObjectId: Types.ObjectId,
+  fromDate: string,
+  toDate: string,
+  options: PaginationOptions
+): Promise<PaginatedResult<any>> => {
+  const { page, limit } = options;
+  const skip = (page - 1) * limit;
+
+  const from = new Date(fromDate);
+  from.setHours(0, 0, 0, 0);
+
+  const to = new Date(toDate);
+  to.setHours(23, 59, 59, 999);
+
+  const query: any = {
+    hospitalId: hospitalObjectId,
+    appointmentDate: { $gte: from, $lte: to },
+  };
+
+  const appointments = await Appointment.find(query)
+    .sort({ appointmentDate: 1, slotStartTime: 1 })
+    .skip(skip)
+    .limit(limit)
+    .select('-__v');
+
+  const total = await Appointment.countDocuments(query);
+
+  return {
+    data: appointments,
+    pagination: { page, limit, total, totalPages: Math.ceil(total / limit) },
+  };
+};
