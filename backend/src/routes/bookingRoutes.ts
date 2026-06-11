@@ -13,11 +13,11 @@ const router = Router();
 // PUBLIC BOOKING ROUTES (No Auth Required)
 // ============================================
 
-// Get available slots for a hospital
-router.get('/slots/:hospitalId', getPublicSlots);
-
-// Get next N calendar days with slots (default 7), skipping empty days
+// Get the next N calendar days with slots — MUST be before /slots/:hospitalId
 router.get('/slots/window/:hospitalId', getNextSlotWindow);
+
+// Get available slots for a hospital on a given date
+router.get('/slots/:hospitalId', getPublicSlots);
 
 // Lock a slot when proceeding to payment
 router.post('/slots/lock', lockSlot);

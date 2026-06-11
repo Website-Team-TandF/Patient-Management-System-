@@ -40,7 +40,7 @@ router.get(
 router.get(
   "/today",
   authMiddleware,
-  requireRole(["doctor", "admin"]),
+  requireRole(["doctor", "receptionist", "admin"]),
   getHospitalTodayVisits
 );
 router.put(

@@ -25,11 +25,11 @@ router.get('/hospital/:hospitalId', requireRole(['admin']), getSlotsByHospital);
 // Get slot by ID - Admin only
 router.get('/:slotId', requireRole(['admin']), getSlotById);
 
-// Delete slot - Admin only
-router.delete('/:slotId', requireRole(['admin']), deleteSlot);
-
-// Bulk delete slots by date - Admin only
+// Bulk delete slots by date — MUST be before /:slotId to avoid route conflict
 router.delete('/hospital/:hospitalId', requireRole(['admin']), deleteSlotsByDate);
+
+// Delete single slot - Admin only
+router.delete('/:slotId', requireRole(['admin']), deleteSlot);
 
 // ============================================
 // Add other user role routes here (doctor, receptionist, etc.)
