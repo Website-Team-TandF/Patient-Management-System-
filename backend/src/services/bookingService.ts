@@ -19,16 +19,24 @@ export const getPublicSlots = async (hospitalId: string, date?: string) => {
   const query: any = { hospitalId: hospitalObjectId };
 
   // Filter by date if provided, otherwise get future slots
+  // IMPORTANT: slotDate is stored in MongoDB as IST midnight expressed in UTC
+  // (e.g. June 12 IST midnight = 2026-06-11T18:30:00Z).
+  // We must use IST midnight as our range boundaries, NOT UTC midnight.
+  // Otherwise Render (UTC server) would set start = 2026-06-12T00:00Z = 5:30 AM IST
+  // and miss all slots stored at 2026-06-11T18:30Z (IST midnight).
+  const IST_OFFSET = '+05:30';
   if (date) {
-    const targetDate = new Date(date);
-    targetDate.setHours(0, 0, 0, 0);
-    const nextDay = new Date(targetDate);
-    nextDay.setDate(nextDay.getDate() + 1);
+    const targetDate = new Date(`${date}T00:00:00${IST_OFFSET}`);   // IST midnight = start of day
+    const nextDay   = new Date(`${date}T00:00:00${IST_OFFSET}`);
+    nextDay.setDate(nextDay.getDate() + 1);                          // next IST midnight = end of day
     query.slotDate = { $gte: targetDate, $lt: nextDay };
   } else {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    query.slotDate = { $gte: today };
+    // No date: get all future slots from today IST midnight onwards
+    const todayISTStr = new Date(new Date().getTime() + 5.5 * 60 * 60 * 1000)
+      .toISOString()
+      .split('T')[0];
+    const todayIST = new Date(`${todayISTStr}T00:00:00${IST_OFFSET}`);
+    query.slotDate = { $gte: todayIST };
   }
 
   // Get all slots
